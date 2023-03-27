@@ -84,4 +84,4 @@ const deleteQuery = buildDeleteQuery({
 Currently it does not support SQL joins.
 
 ## WARNING
-Currently the input values for the parameters *top*, *into*, *table*, *fields* (from [buildSelectQuery](#buildSelectQuery)) are not sanitized! Thus SQL injections can occur if not treated accordingly.
+Currently the input values for the parameters **top**, **into**, **table**, **fields** (from [buildSelectQuery](#buildSelectQuery)) are not sanitized! Thus SQL injections can occur if not treated accordingly.
