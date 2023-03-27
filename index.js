@@ -7,9 +7,16 @@ const {
 
 
 const selectQuery = buildSelectQuery({
+  top: 10,
   fields: ['id', 'firstname', 'lastname'],
   from: 'Users',
-  where: [{ key: 'id', value: 1 }],
+  where: [
+    { key: 'id', value: 1 },
+    { key: 'firstname', value: ['John', 'Joe'] },
+  ],
+  between: [
+    { key: 'age', lowerValue: 23, upperValue: 30 }
+  ]
 })
 
 

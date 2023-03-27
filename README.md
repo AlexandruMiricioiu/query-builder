@@ -11,16 +11,28 @@ A simple SQL query builder for CRUD operations that was initially designed for S
 ## buildSelectQuery
 ```javascript
 const selectQuery = buildSelectQuery({
-  top: 1,
+  top: 10,
   fields: ['id', 'firstname', 'lastname'],
   from: 'Users',
-  where: [{ key: 'id', value: 1 }],
+  where: [
+    { key: 'id', value: 1 },
+    { key: 'firstname', value: ['John', 'Joe'] },
+  ],
+  between: [
+    { key: 'age', lowerValue: 23, upperValue: 30 }
+  ]
 })
 
 // returns:
 // {
-//   query: 'SELECT id, firstname, lastname FROM Users WHERE id = @id_W_0;',
-//   queryParameters: [ { key: 'id_W_0', value: 1, type: null } ]
+//   query: 'SELECT TOP 10 id, firstname, lastname FROM Users WHERE id = @id_W_0 AND firstname IN (@firstname_IN_0,@firstname_IN_1) AND age BETWEEN @age_B_0_LOWER AND @age_B_0_UPPER;',
+//   queryParameters: [
+//     { key: 'id_W_0', value: 1, type: null },
+//     { key: 'firstname_IN_0', value: 'John', type: null },
+//     { key: 'firstname_IN_1', value: 'Joe', type: null },
+//     { key: 'age_B_0_LOWER', value: 23, type: null },
+//     { key: 'age_B_0_UPPER', value: 30, type: null }
+//   ]
 // }
 ```
 
