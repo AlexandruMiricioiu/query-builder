@@ -25,7 +25,9 @@ const selectQuery = buildSelectQuery({
 
 // returns:
 // {
-//   query: 'SELECT TOP 10 id, firstname, lastname FROM Users WHERE id = @id_W_0 AND firstname IN (@firstname_IN_0,@firstname_IN_1) AND age BETWEEN @age_B_0_LOWER AND @age_B_0_UPPER;',
+//   query: 'SELECT TOP 10 id, firstname, lastname FROM Users
+//           WHERE id = @id_W_0 AND firstname IN (@firstname_IN_0,@firstname_IN_1)
+//           AND age BETWEEN @age_B_0_LOWER AND @age_B_0_UPPER;',
 //   queryParameters: [
 //     { key: 'id_W_0', value: 1, type: null },
 //     { key: 'firstname_IN_0', value: 'John', type: null },
